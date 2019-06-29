@@ -1,34 +1,40 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import {ButtonModule} from 'primeng/button';
-import {InputTextModule} from 'primeng/inputtext';
-import {TableModule} from 'primeng/table';
-import { ProdutosPesquisaComponent } from './produtos-pesquisa/produtos-pesquisa.component';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
+
+
 import { NavbarComponent } from './navbar/navbar.component';
-import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
-import { PessoasCadastroComponent } from './pessoas-cadastro/pessoas-cadastro.component';
-import { ProdutosCadastroComponent } from './produtos-cadastro/produtos-cadastro.component';
+import { PessoasModule } from './pessoas/pessoas.module';
+import { ProdutosModule } from './produtos/produtos.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProdutosPesquisaComponent,
     NavbarComponent,
-    PessoasPesquisaComponent,
-    PessoasCadastroComponent,
-    ProdutosCadastroComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+
     ButtonModule,
     InputTextModule,
-    TableModule
+    TableModule,
+    DropdownModule,
+    FormsModule,
+
+    ProdutosModule,
+    PessoasModule
 
   ],
   providers: [],

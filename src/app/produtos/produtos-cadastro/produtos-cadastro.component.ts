@@ -5,11 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './produtos-cadastro.component.html',
   styleUrls: ['./produtos-cadastro.component.css']
 })
-export class ProdutosCadastroComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+export class ProdutosCadastroComponent {
+  categorias = [
+    { label: 'Alimentação', value: 1 },
+    { label: 'Transporte', value: 2 },
+  ];
 
 }
