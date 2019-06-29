@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="ui-g">
+
+      <div class="ui-g-12">
+        <h1>Produtos</h1>
+      </div>
+
+      <div class="ui-g-12 ui-fluid">
+        <label>Descrição</label>
+        <input pInputText type="text">
+      </div>
+
+      <div class="ui-g-12">
+        <button pButton type="button" label="Pesquisar" ></button>
+      </div>
+
+
+      <div class="ui-g">
+          <div class="ui-g-12">
+          <p-table [value]="produtos" [paginator]="true" [rows]="2"
+              [responsive]="true">
+              <ng-template pTemplate="header">
+                  <tr>
+                      <th>Descricao</th>
+                      <th class="col-valor-header">Valor</th>
+                      <th class="col-data-header">Quantidade</th>
+                      <th class="col-valor-header">Categoria</th>
+                      <th class="col-valor-header">Comprar</th>
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-produto>
+                  <tr>
+                      <td>{{produto.descricao}}</td>
+                      <td class="col-valor-content">{{produto.valor}}</td>
+                      <td class="col-data-content">{{produto.quantidadeEstoque}}</td>
+                      <td class="col-valor-content">{{produto.categoriaDescricao}}</td>
+                      <td class="col-acoes">
+                          <button pButton icon="pi pi-shopping-cart" ></button>
+                      </td>
+                  </tr>
+              </ng-template>
+          </p-table>
+          </div>
+      </div>
+
+    </div>
+  </div>
