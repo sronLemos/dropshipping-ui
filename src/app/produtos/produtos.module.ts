@@ -7,6 +7,7 @@ import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { ProdutosCadastroComponent } from './produtos-cadastro/produtos-cadastro.component';
 import { ProdutosPesquisaComponent } from './produtos-pesquisa/produtos-pesquisa.component';
@@ -23,7 +24,8 @@ import { ProdutoService } from './produto.service';
     DropdownModule,
     CurrencyMaskModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule
   ],
   providers: [ProdutoService],
   declarations: [ProdutosPesquisaComponent, ProdutosCadastroComponent],

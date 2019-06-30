@@ -1,19 +1,22 @@
 <div class="container">
     <div class="ui-g">
 
-      <div class="ui-g-12">
-        <h1>Produtos</h1>
-      </div>
+      <form autocomplete="off" (ngSubmit)="pesquisar()">
 
-      <div class="ui-g-12 ui-fluid">
-        <label>Descrição</label>
-        <input pInputText type="text">
-      </div>
+        <div class="ui-g-12">
+          <h1>Produtos</h1>
+        </div>
 
-      <div class="ui-g-12">
-        <button pButton type="button" label="Pesquisar" ></button>
-      </div>
+        <div class="ui-g-12 ui-fluid">
+          <label>Descrição</label>
+          <input pInputText type="text" name="descricao"
+          [(ngModel)]="descricao">
+        </div>
 
+        <div class="ui-g-12">
+          <button pButton type="button" label="Pesquisar" ></button>
+        </div>
+      </form>
 
       <div class="ui-g">
           <div class="ui-g-12">
@@ -35,7 +38,9 @@
                       <td class="col-data-content">{{produto.quantidadeEstoque}}</td>
                       <td class="col-valor-content">{{produto.categoriaDescricao}}</td>
                       <td class="col-acoes">
-                          <button pButton icon="pi pi-shopping-cart" ></button>
+                          <a  pButton icon="pi pi-shopping-cart"
+                          [routerLink]="['/produtos', produto.id]"
+                          ></a>
                       </td>
                   </tr>
               </ng-template>
@@ -43,5 +48,8 @@
           </div>
       </div>
 
+      <div class="ui-g-12">
+          <a pButton label="Novo Produto" routerLink="/produtos/novo"></a>
+        </div>
     </div>
   </div>
