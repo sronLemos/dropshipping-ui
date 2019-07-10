@@ -1,3 +1,5 @@
+import { PessoasCadastroComponent } from './pessoas/pessoas-cadastro/pessoas-cadastro.component';
+import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -13,18 +15,20 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 
 
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './core/navbar/navbar.component';
 import { PessoasModule } from './pessoas/pessoas.module';
 import { ProdutosModule } from './produtos/produtos.module';
 import { ProdutosCadastroComponent } from './produtos/produtos-cadastro/produtos-cadastro.component';
 import { ProdutosPesquisaComponent } from './produtos/produtos-pesquisa/produtos-pesquisa.component';
 import { PessoasPesquisaComponent } from './pessoas/pessoas-pesquisa/pessoas-pesquisa.component';
+import { SegurancaModule } from './seguranca/seguranca.module';
 
 const routes: Routes = [
   { path: 'produtos', component: ProdutosPesquisaComponent },
   { path: 'produtos/novo', component: ProdutosCadastroComponent },
   { path: 'produtos/:id', component: ProdutosCadastroComponent },
-  { path: 'pessoas', component: PessoasPesquisaComponent }
+  { path: 'pessoas', component: PessoasPesquisaComponent },
+  { path: 'pessoas/novo', component: PessoasCadastroComponent },
 ];
 
 @NgModule({
@@ -38,14 +42,10 @@ const routes: Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
 
-    ButtonModule,
-    InputTextModule,
-    TableModule,
-    DropdownModule,
-    FormsModule,
-
+    CoreModule,
     ProdutosModule,
-    PessoasModule
+    PessoasModule,
+    SegurancaModule
 
   ],
   providers: [],
