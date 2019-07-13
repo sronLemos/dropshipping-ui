@@ -33,5 +33,6 @@ export class ErrorHandlerService {
     }
 
     this.toasty.error(msg);
+    console.log(msg);
   }
 }

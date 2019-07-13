@@ -1,3 +1,9 @@
+import { JwtHelper } from 'angular2-jwt';
+import { ProdutoService } from './../produtos/produto.service';
+import { PessoaService } from './../pessoas/pessoa.service';
+import { AuthService } from './../seguranca/auth.service';
+import { RouterModule } from '@angular/router';
+import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -14,6 +20,8 @@ import { ToastyModule } from 'ng2-toasty';
   ],
   imports: [
     CommonModule,
+    HttpModule,
+    RouterModule,
 
     ToastyModule.forRoot(),
   ],
@@ -22,7 +30,12 @@ import { ToastyModule } from 'ng2-toasty';
     ToastyModule,
   ],
   providers: [
+    ProdutoService,
+    PessoaService,
     ErrorHandlerService,
+    AuthService,
+    JwtHelper
+
   ]
 })
 export class CoreModule { }

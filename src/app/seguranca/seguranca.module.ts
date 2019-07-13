@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Http, RequestOptions } from '@angular/http';
 
-import { AuthHttp, AuthConfig, JwtHelper } from 'angular2-jwt';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 
@@ -28,12 +28,12 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
     SegurancaRoutingModule
   ],
-  providers:[
+  providers: [
     {
       provide: AuthHttp,
       useFactory: authHttpServiceFactory,
       deps: [Http, RequestOptions]
-    }, JwtHelper
+    }
   ],
   declarations: [LoginFormComponent]
 })
