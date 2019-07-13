@@ -34,9 +34,9 @@
               <ng-template pTemplate="body" let-produto>
                   <tr>
                       <td>{{produto.descricao}}</td>
-                      <td class="col-valor-content">{{produto.valor}}</td>
+                      <td class="col-valor-content">{{produto.precoVenda}}</td>
                       <td class="col-data-content">{{produto.quantidadeEstoque}}</td>
-                      <td class="col-valor-content">{{produto.categoriaDescricao}}</td>
+                      <td class="col-valor-content">{{produto.categoria.descricao}}</td>
                       <td class="col-acoes">
                           <a  pButton icon="pi pi-shopping-cart"
                           [routerLink]="['/produtos', produto.id]"
