@@ -1,3 +1,4 @@
+import { PaginaNaoAutorizadoComponent } from './pagina-nao-autorizado.component';
 import { JwtHelper } from 'angular2-jwt';
 import { ProdutoService } from './../produtos/produto.service';
 import { PessoaService } from './../pessoas/pessoa.service';
@@ -16,7 +17,8 @@ import { ToastyModule } from 'ng2-toasty';
 @NgModule({
   declarations: [
     NavbarComponent,
-    PaginaNaoEncontradaComponent
+    PaginaNaoEncontradaComponent,
+    PaginaNaoAutorizadoComponent
   ],
   imports: [
     CommonModule,
