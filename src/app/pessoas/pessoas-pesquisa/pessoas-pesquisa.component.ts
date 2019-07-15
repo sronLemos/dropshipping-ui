@@ -31,7 +31,6 @@ export class PessoasPesquisaComponent implements OnInit {
   }
 
   pesquisar(pagina = 0) {
-    console.log('asdf');
     this.filtro.pagina = pagina;
 
     this.pessoaService.pesquisar(this.filtro)

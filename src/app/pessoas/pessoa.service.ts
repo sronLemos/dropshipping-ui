@@ -38,9 +38,8 @@ export class PessoaService {
           pessoas,
           total: responseJson.totalElements
         };
-        console.log(resultado);
         return resultado;
-      })
+      });
   }
 
   listarTodas(): Promise<any> {
