@@ -10,19 +10,19 @@ const routes: Routes = [
     path: 'produtos',
     component: ProdutosPesquisaComponent,
     canActivate: [AuthGuard],
-    data: {roles: ['ROLE_PESQUISAR_PROUTO']}
+    data: {roles: ['ROLE_PESQUISAR_PRODUTO']}
   },
   {
     path: 'produtos/novo',
     component: ProdutosCadastroComponent,
     canActivate: [AuthGuard],
-    data: {roles: ['ROLE_CADASTRAR_PROUTO']}
+    data: {roles: ['ROLE_CADASTRAR_PRODUTO']}
   },
   {
     path: 'produtos/:id',
     component: ProdutosCadastroComponent,
     canActivate: [AuthGuard],
-    data: {roles: ['ROLE_CADASTRAR_PROUTO']}
+    data: {roles: ['ROLE_CADASTRAR_PRODUTO']}
   },
 ];
 

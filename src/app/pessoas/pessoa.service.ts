@@ -5,12 +5,11 @@ import { Pessoa } from '../core/model';
 import 'rxjs/add/operator/toPromise';
 import { AuthHttp } from 'angular2-jwt';
 
-export interface PessoaFiltro {
+export class PessoaFiltro {
   nome: string;
-  pagina: number;
-  itensPorPagina: number
+  pagina = 0;
+  itensPorPagina = 5;
 }
-
 
 @Injectable()
 export class PessoaService {
@@ -39,7 +38,7 @@ export class PessoaService {
           pessoas,
           total: responseJson.totalElements
         };
-
+        console.log(resultado);
         return resultado;
       })
   }

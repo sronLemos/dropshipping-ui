@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-import { PessoaService } from '../pessoa.service';
+import { Pessoa } from 'src/app/core/model';
+import { PessoaService, PessoaFiltro } from '../pessoa.service';
 import { ErrorHandlerService } from './../../core/error-handler-service';
 
 import { ToastyService } from 'ng2-toasty';
@@ -14,7 +15,7 @@ import { ToastyService } from 'ng2-toasty';
 export class PessoasPesquisaComponent implements OnInit {
 
   totalRegistros = 0;
-  filtro = null;
+  filtro = new PessoaFiltro();
   pessoas = [];
 
   constructor(
@@ -30,6 +31,7 @@ export class PessoasPesquisaComponent implements OnInit {
   }
 
   pesquisar(pagina = 0) {
+    console.log('asdf');
     this.filtro.pagina = pagina;
 
     this.pessoaService.pesquisar(this.filtro)
@@ -46,7 +48,7 @@ export class PessoasPesquisaComponent implements OnInit {
   alternarStatus(pessoa: any): void {
     const novoStatus = !pessoa.ativo;
 
-    this.pessoaService.mudarStatus(pessoa.codigo, novoStatus)
+    this.pessoaService.mudarStatus(pessoa.id, novoStatus)
       .then(() => {
         const acao = novoStatus ? 'ativada' : 'desativada';
 
