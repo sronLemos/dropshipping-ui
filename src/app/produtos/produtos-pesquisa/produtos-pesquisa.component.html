@@ -38,10 +38,11 @@
                       <td class="col-data-content">{{produto.quantidadeEstoque}}</td>
                       <td class="col-valor-content">{{produto.categoria.descricao}}</td>
                       <td class="col-acoes">
-                          <a  pButton icon="pi pi-shopping-cart"
-                          [routerLink]="['/produtos', produto.id]"
-                          ></a>
-                      </td>
+                        <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"
+                        [routerLink]="['/produtos', produto.id]"
+                        ></a>
+                        <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>
+                    </td>
                   </tr>
               </ng-template>
           </p-table>

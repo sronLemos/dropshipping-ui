@@ -22,12 +22,11 @@ export class PessoasPesquisaComponent implements OnInit {
     private pessoaService: PessoaService,
     private errorHandler: ErrorHandlerService,
     private toasty: ToastyService,
-    private title: Title
   ) { }
 
 
   ngOnInit() {
-    this.title.setTitle('Pesquisa de pessoas');
+    this.pesquisar();
   }
 
   pesquisar(pagina = 0) {

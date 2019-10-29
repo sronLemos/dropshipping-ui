@@ -1,45 +1,38 @@
 <div class="container">
-    <form>
+    <form #p="ngForm" autocomplete="off" (ngSubmit)="salvar(p)">
 
       <div class="ui-g">
         <div class="ui-g-12">
-          <h1>Novo Produto</h1>
+          <h1>{{ produto.id ? 'Edição de' : 'Novo' }} Produto</h1>
         </div>
 
         <div class="ui-g-12 ui-md-9 ui-fluid">
           <label>Descrição</label>
           <input pInputText type="text" name="descricao"
-           ngModel #descricao="ngModel" required minlength="5">
-
-        <div *ngIf="descricao.hasError('required') && descricao.dirty"
-          class="ui-messages ui-messages-error">
-          Informe uma descrição
-        </div>
-        <div *ngIf="descricao.hasError('minlength') && descricao.dirty"
-          class="ui-messages ui-messages-error">
-          Mínimo de {{ descricao.errors.minlength.requiredLength }} caracteres. Você digitou apenas {{ descricao.errors.minlength.actualLength }}
-        </div>
-
+           [(ngModel)]="produto.descricao" #descricao="ngModel" required minlength="5">
         </div>
         <div class="ui-g-12 ui-md-3 ui-fluid">
           <label>Valor</label>
-          <input pInputText type="text" placeholder="0,00" currencyMask
+          <input pInputText type="text" placeholder="0,00" currencyMask name="valor"
+          [(ngModel)]="produto.precoVenda"
           [options]="{ prefix: '', thousands: '.', decimal: ',', allowNegative: false }">
         </div>
 
         <div class="ui-g-6 ui-md-3 ui-fluid">
             <label>Estoque</label>
-            <input pInputText type="text">
+            <input pInputText type="text" name="quantidadeEstoque" [(ngModel)]="produto.quantidadeEstoque">
           </div>
         <div class="ui-g-12 ui-md-6 ui-fluid">
           <label>Categoria</label>
-          <p-dropdown [options]="categorias" placeholder="Selecione"
-           #categoria></p-dropdown>
+          <p-dropdown name="categoria" [options]="categorias" placeholder="Selecione"
+           [autoWidth]="false"
+           [(ngModel)]="produto.categoria.id" required></p-dropdown>
         </div>
 
         <div class="ui-g-12">
           <button pButton type="submit" label="Salvar"></button>
-          <button pButton type="button" label="Novo" class="ui-button-info"></button>
+          <button pButton type="button" label="Novo" class="ui-button-info"
+          (click)="novo(p)"></button>
           <a routerLink="/produtos">Voltar para a pesquisa</a>
         </div>
       </div>

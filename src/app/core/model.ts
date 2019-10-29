@@ -9,5 +9,11 @@ export class Produto {
   descricao: string;
   precoVenda: number;
   quantidadeEstoque: number;
-  categoria: any;
+  categoria = new Categoria();
+  vendedor = new Pessoa();
+}
+
+export class Categoria {
+  id: number;
+  descricao: string;
 }

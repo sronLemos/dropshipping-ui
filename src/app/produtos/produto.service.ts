@@ -26,7 +26,7 @@ export class ProdutoService {
 
     return this.http.get(`${this.produtosUrl}`, { search: params })
       .toPromise()
-      .then(response => response.json().content)
+      .then(response => response.json().content);
   }
 
   excluir(id: number): Promise<void> {
@@ -54,6 +54,13 @@ export class ProdutoService {
 
         return produtoAlterado;
       });
+  }
+
+  adicionar(produto: Produto): Promise<Produto> {
+    return this.http.post(this.produtosUrl,
+        JSON.stringify(produto))
+      .toPromise()
+      .then(response => response.json());
   }
 
 
